@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agendamento</title>
+    <link rel="stylesheet" href="/styles/index.css">
+</head>
+<body>
+    <h1>Agendamento</h1>
+
+    <form>
+        <div>
+            <h1>Dados do paciente</h1>
+        </div>
+
+        <div>
+            <div>
+                <label for="name">Nome</label>
+                <input type="text" placeholder="text" name="name" id="name">
+            </div>
+
+            <div>
+                <label for="lastName">Sobrenome</label>
+                <input type="text" placeholder="text" name="lastName" id="lastName">
+            </div>
+        </div>
+
+        <div>
+            <div>
+                <label for="cpf">CPF</label>
+                <input type="text" placeholder="text" name="cpf" id="cpf">
+            </div>
+
+            <div>
+                <label for="birthdate">Data de nascimento</label>
+                <input type="date" placeholder="text" name="birthdate" id="birthdate">
+            </div>
+        </div>
+
+        <div>
+            <div>
+                <label for="phone">Telefone</label>
+                <input type="text" placeholder="text" name="phone" id="phone">
+            </div>
+
+            <div>
+                <label for="zipcode">CEP</label>
+                <input type="text" placeholder="text" name="zipcode" id="zipcode">
+            </div>
+        </div>
+
+        <div>
+            <div>
+                <label for="address">Endereço</label>
+                <input type="text" placeholder="text" name="address" id="address">
+            </div>
+        </div>
+
+        <div>
+            <h1>Dados de consulta</h1>
+        </div>
+
+        <div>
+            <div>
+                <label for="hospital">Clínica</label>
+                <select name="hospital" id="hospital">
+                    <option value="" selected hidden>text goes here</option>
+                </select>
+            </div>
+
+            <div>
+                <label for="specification">Especialidade</label>
+                <select name="specification" id="specification">
+                    <option value="" selected hidden>text goes here</option>
+                </select>
+            </div>
+        </div>
+
+        <div>
+            <div>
+                <label for="date">Data</label>
+                <input type="date" placeholder="text" name="date" id="date">
+            </div>
+
+            <div>
+                <label for="hour">Hora</label>
+                <input type="time" placeholder="text" name="hour" id="hour">
+            </div>
+        </div>
+
+        <div>
+            <div>
+                <label for="observation">Observações</label>
+                <textarea type="text" placeholder="text" id="observation" name="observation" rows="10"></textarea>
+            </div>
+        </div>
+
+        <div>
+            <button type="submit">
+                Enviar
+            </button>
+        </div>
+    </form>
+</body>
+</html>

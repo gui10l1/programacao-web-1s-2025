@@ -7,100 +7,128 @@
     <link rel="stylesheet" href="/styles/index.css">
 </head>
 <body>
-    <h1>Agendamento</h1>
+    <div class="container">
+        <h1>Agendamento</h1>
 
-    <form>
-        <div>
-            <h1>Dados do paciente</h1>
+        {{#invalid}}
+        <div class="error-container">
+            {{#invalids}}
+            <div class="error">
+                <p>
+                    Campo <strong>{{target}}</strong>: {{message}}
+                </p>
+            </div>
+            {{/invalids}}
+
+            {{#invalidDate}}
+            <div class="error">
+                <p>
+                    {{invalidDate}}
+                </p>
+            </div>
+            {{/invalidDate}}
         </div>
+        {{/invalid}}
 
-        <div>
+        <form action="/agendar-consulta" method="POST">
             <div>
-                <label for="name">Nome</label>
-                <input type="text" placeholder="text" name="name" id="name">
+                <h1>Dados do paciente</h1>
             </div>
 
             <div>
-                <label for="lastName">Sobrenome</label>
-                <input type="text" placeholder="text" name="lastName" id="lastName">
-            </div>
-        </div>
+                <div>
+                    <label for="name">Nome</label>
+                    <input type="text" placeholder="text" name="name" id="name" value="{{data.name}}">
+                </div>
 
-        <div>
-            <div>
-                <label for="cpf">CPF</label>
-                <input type="text" placeholder="text" name="cpf" id="cpf">
-            </div>
-
-            <div>
-                <label for="birthdate">Data de nascimento</label>
-                <input type="date" placeholder="text" name="birthdate" id="birthdate">
-            </div>
-        </div>
-
-        <div>
-            <div>
-                <label for="phone">Telefone</label>
-                <input type="text" placeholder="text" name="phone" id="phone">
+                <div>
+                    <label for="lastName">Sobrenome</label>
+                    <input type="text" placeholder="text" name="lastName" id="lastName" value="{{data.lastName}}">
+                </div>
             </div>
 
             <div>
-                <label for="zipcode">CEP</label>
-                <input type="text" placeholder="text" name="zipcode" id="zipcode">
-            </div>
-        </div>
+                <div>
+                    <label for="cpf">CPF</label>
+                    <input type="text" placeholder="text" name="cpf" id="cpf" value="{{data.cpf}}" class="cpf">
+                </div>
 
-        <div>
-            <div>
-                <label for="address">Endereço</label>
-                <input type="text" placeholder="text" name="address" id="address">
-            </div>
-        </div>
-
-        <div>
-            <h1>Dados de consulta</h1>
-        </div>
-
-        <div>
-            <div>
-                <label for="hospital">Clínica</label>
-                <select name="hospital" id="hospital">
-                    <option value="" selected hidden>text goes here</option>
-                </select>
+                <div>
+                    <label for="birthdate">Data de nascimento</label>
+                    <input type="date" placeholder="text" name="birthdate" id="birthdate" value="{{data.birthdate}}">
+                </div>
             </div>
 
             <div>
-                <label for="specification">Especialidade</label>
-                <select name="specification" id="specification">
-                    <option value="" selected hidden>text goes here</option>
-                </select>
-            </div>
-        </div>
+                <div>
+                    <label for="phone">Telefone</label>
+                    <input type="text" placeholder="text" name="phone" id="phone" value="{{data.phone}}" class="phone">
+                </div>
 
-        <div>
-            <div>
-                <label for="date">Data</label>
-                <input type="date" placeholder="text" name="date" id="date">
+                <div>
+                    <label for="zipcode">CEP</label>
+                    <input type="text" placeholder="text" name="zipcode" id="zipcode" value="{{data.zipcode}}" class="cep">
+                </div>
             </div>
 
             <div>
-                <label for="hour">Hora</label>
-                <input type="time" placeholder="text" name="hour" id="hour">
+                <div>
+                    <label for="address">Endereço</label>
+                    <input type="text" placeholder="text" name="address" id="address" value="{{data.address}}">
+                </div>
             </div>
-        </div>
 
-        <div>
             <div>
-                <label for="observation">Observações</label>
-                <textarea type="text" placeholder="text" id="observation" name="observation" rows="10"></textarea>
+                <h1>Dados de consulta</h1>
             </div>
-        </div>
 
-        <div>
-            <button type="submit">
-                Enviar
-            </button>
-        </div>
-    </form>
+            <div>
+                <div>
+                    <label for="hospital">Clínica</label>
+                    <select name="hospital" id="hospital" value="{{data.hospital}}">
+                        <option value="" selected="{{data.hospital === ''}}" hidden>text goes here</option>
+                        <option value="clinica-1" selected="{{data.hospital === 'clinica-1'}}">clinica 1</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label for="specification">Especialidade</label>
+                    <select name="specification" id="specification" value="{{data.specification}}">
+                        <option value="" selected="{{data.specification === ''}}" hidden>text goes here</option>
+                        <option value="especificacao-1" selected="{{data.specification === 'especificacao-1'}}">especificação 1</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <div>
+                    <label for="date">Data</label>
+                    <input type="date" placeholder="text" name="date" id="date" value="{{data.date}}">
+                </div>
+
+                <div>
+                    <label for="hour">Hora</label>
+                    <input type="time" placeholder="text" name="hour" id="hour" value="{{data.hour}}">
+                </div>
+            </div>
+
+            <div>
+                <div>
+                    <label for="observation">Observações</label>
+                    <textarea type="text" placeholder="text" id="observation" name="observation" rows="10">{{data.observation}}</textarea>
+                </div>
+            </div>
+
+            <div>
+                <button type="submit">
+                    Enviar
+                </button>
+            </div>
+        </form>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="/lib/jquery.mask.min.js"></script>
+    <script src="/js/masks.js"></script>
 </body>
 </html>
